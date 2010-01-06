@@ -24,8 +24,4 @@ string i j k = conjoin (map_by_char 'e' i a) (map_by_char 'e' j b) (map_by_char 
 strings = [(i,j,k,string i j k) | i <- [0..10], j <- [0..10], k <- [0..10]]
 
 (i,j,k,s) = head $ filter (\(_,_,_,s) -> isInfixOf "the" s && isInfixOf "that" s) strings
-solution = sum (ai ++ bj ++ ck)
-	where
-		ai = map (xor i) a
-		bj = map (xor j) b
-		ck = map (xor k) c
+solution' = sum $ map ord s
